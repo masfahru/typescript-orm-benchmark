@@ -1,5 +1,5 @@
 import { ColumnType, Generated, Selectable } from 'kysely';
-import { Pool } from 'pg';
+import Pool from 'pg-pool';
 import { Kysely, PostgresDialect } from 'kysely';
 import { postgresConfig } from '../config';
 

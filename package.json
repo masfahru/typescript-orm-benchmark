@@ -5,6 +5,7 @@
   "devDependencies": {
     "@types/mysql": "^2.15.23",
     "@types/pg": "^8.10.7",
+    "@types/pg-pool": "^2.0.5",
     "bun-types": "latest"
   },
   "peerDependencies": {
@@ -23,6 +24,7 @@
     "mitata": "^0.1.6",
     "mysql2": "^3.6.2",
     "pg": "^8.11.3",
+    "pg-pool": "^3.6.1",
     "postgres": "~3.4.1",
     "prisma": "latest",
     "sequelize": "^6.33.0",

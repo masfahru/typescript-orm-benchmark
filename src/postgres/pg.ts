@@ -1,5 +1,6 @@
-import { Pool, PoolConfig } from 'pg';
+import Pool from 'pg-pool';
 import { postgresConfig } from '../config';
+import { PoolConfig } from 'pg';
 
 const poolConfig: PoolConfig = postgresConfig;
 
