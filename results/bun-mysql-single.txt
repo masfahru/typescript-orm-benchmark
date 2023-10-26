@@ -1,0 +1,25 @@
+cpu: Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz
+runtime: bun 1.0.7 (x64-linux)
+
+benchmark       time (avg)             (min … max)       p75       p99      p995
+-------------------------------------------------- -----------------------------
+• MySQL
+-------------------------------------------------- -----------------------------
+DrizzleORM  830.81 µs/iter   (551.02 µs … 5.71 ms) 758.33 µs   3.49 ms      4 ms
+KnexJS      624.54 µs/iter   (416.72 µs … 5.59 ms) 587.22 µs   2.83 ms   3.14 ms
+Kysely      506.01 µs/iter   (349.01 µs … 6.25 ms) 467.02 µs   2.28 ms   2.42 ms
+Mariadb     425.03 µs/iter   (275.31 µs … 5.31 ms) 389.92 µs   2.22 ms   2.71 ms
+MikroORM     22.49 µs/iter     (12.4 µs … 2.71 ms)     20 µs   67.7 µs   94.6 µs
+MySQL2      510.55 µs/iter   (294.31 µs … 9.14 ms) 404.31 µs   3.41 ms   5.18 ms
+Prisma      941.56 µs/iter   (596.82 µs … 6.61 ms) 828.73 µs   4.23 ms   5.52 ms
+Sequelize   958.06 µs/iter   (613.32 µs … 4.12 ms) 914.24 µs   3.51 ms   3.67 ms
+
+summary for MySQL
+  MikroORM
+   18.9x faster than Mariadb
+   22.5x faster than Kysely
+   22.7x faster than MySQL2
+   27.76x faster than KnexJS
+   36.93x faster than DrizzleORM
+   41.86x faster than Prisma
+   42.59x faster than Sequelize

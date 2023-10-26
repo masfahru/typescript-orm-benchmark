@@ -15,7 +15,7 @@
     "@mikro-orm/core": "^5.9.0",
     "@mikro-orm/mysql": "^5.9.0",
     "@mikro-orm/postgresql": "^5.9.0",
-    "@prisma/client": "^5.5.1",
+    "@prisma/client": "^5.5.2",
     "drizzle-orm": "^0.28.6",
     "knex": "^3.0.1",
     "kysely": "^0.26.3",

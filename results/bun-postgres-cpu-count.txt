@@ -1,0 +1,25 @@
+cpu: Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz
+runtime: bun 1.0.7 (x64-linux)
+
+benchmark        time (avg)             (min … max)       p75       p99      p995
+--------------------------------------------------- -----------------------------
+• PostgreSQL
+--------------------------------------------------- -----------------------------
+DrizzleORM      1.1 ms/iter  (648.42 µs … 10.34 ms)   1.01 ms   4.59 ms   5.57 ms
+KnexJS       972.34 µs/iter  (449.52 µs … 12.69 ms) 906.53 µs   4.64 ms    6.9 ms
+Kysely       650.76 µs/iter   (410.31 µs … 9.59 ms) 588.52 µs   2.66 ms   2.87 ms
+MikroORM      21.74 µs/iter      (12.9 µs … 2.8 ms)   18.8 µs   74.2 µs  101.3 µs
+Pg           546.45 µs/iter   (350.01 µs … 4.65 ms) 496.32 µs   2.53 ms    3.4 ms
+Postgres.js  335.23 µs/iter   (212.51 µs … 5.68 ms) 290.31 µs   1.98 ms   2.27 ms
+Prisma       939.71 µs/iter   (619.72 µs … 8.99 ms) 799.73 µs   4.75 ms   6.59 ms
+Sequelize    812.64 µs/iter   (489.02 µs … 7.26 ms) 723.03 µs   3.65 ms   3.84 ms
+
+summary for PostgreSQL
+  MikroORM
+   15.42x faster than Postgres.js
+   25.14x faster than Pg
+   29.93x faster than Kysely
+   37.38x faster than Sequelize
+   43.22x faster than Prisma
+   44.73x faster than KnexJS
+   50.38x faster than DrizzleORM
