@@ -1,0 +1,149 @@
+name: ORM Benchmark
+
+on:
+  schedule:
+    - cron: '0 0 * * 1'
+  workflow_dispatch:
+
+jobs:
+  bench:
+    name: Bench
+    strategy:
+      fail-fast: true
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_DATABASE: mysqltest
+          MYSQL_USER: mysqltest
+          MYSQL_PASSWORD: mysqltest
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - name: Verify mysqltest DB exists
+        run: mysql --host 0.0.0.0 --port 3306 -umysqltest -pmysqltest -e "SHOW DATABASES LIKE 'mysqltest'"
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4.0.0
+        with:
+          node-version: 20
+      - name: Install required global packages
+        run: npm i -g bun npm-check-updates
+      - name: Update & install packages
+        run: |
+            ncu -u
+            bun i
+      - name: Setup Databases
+        run: bun --bun run src/setup
+        env:
+          PG_HOST: 0.0.0.0
+          MYSQL_HOST: 0.0.0.0
+      - name: Test
+        run: |
+          bun prisma generate --schema=./prisma/schema.postgres.prisma > /dev/null
+          bun --bun test
+        env:
+          DATABASE_URL: postgres://postgres:postgres@0.0.0.0:5432/postgres?schema=public
+          PG_HOST: 0.0.0.0
+          MYSQL_HOST: 0.0.0.0
+      - name: Bun MySQL ORMs benchmark using DEFAULT connections
+        run: |
+          bun prisma generate --schema=./prisma/schema.mysql.prisma > /dev/null
+          bun --bun run mysql.bench.ts > ./results/bun-mysql-default.txt
+        env:
+          DATABASE_URL: mysql://mysqltest:mysqltest@0.0.0.0:3306/mysqltest?schema=public
+          MAX_CONNECTION: DEFAULT
+          MYSQL_HOST: 0.0.0.0
+      - name: Bun MySQL ORMs benchmark using MAX connections
+        run: |
+          bun prisma generate --schema=./prisma/schema.mysql.prisma > /dev/null
+          bun --bun run mysql.bench.ts > ./results/bun-mysql-max.txt
+        env:
+          DATABASE_URL: mysql://mysqltest:mysqltest@0.0.0.0:3306/mysqltest?schema=public
+          MAX_CONNECTION: MAX
+          MYSQL_HOST: 0.0.0.0
+      - name: Bun MySQL ORMs benchmark using CPU_COUNT as max connections
+        run: |
+          bun prisma generate --schema=./prisma/schema.mysql.prisma > /dev/null
+          bun --bun run mysql.bench.ts > ./results/bun-mysql-cpu-count.txt
+        env:
+          DATABASE_URL: mysql://mysqltest:mysqltest@0.0.0.0:3306/mysqltest?schema=public
+          MAX_CONNECTION: CPU_COUNT
+          MYSQL_HOST: 0.0.0.0
+      - name: Bun MySQL ORMs benchmark using only a single connections
+        run: |
+          bun prisma generate --schema=./prisma/schema.mysql.prisma > /dev/null
+          bun --bun run mysql.bench.ts > ./results/bun-mysql-single.txt
+        env:
+          DATABASE_URL: mysql://mysqltest:mysqltest@0.0.0.0:3306/mysqltest?schema=public
+          MAX_CONNECTION: 1
+          MYSQL_HOST: 0.0.0.0
+      - name: Bun Postgres ORMs benchmark using DEFAULT connections
+        run: |
+          bun prisma generate --schema=./prisma/schema.postgres.prisma > /dev/null
+          bun --bun run postgres.bench.ts > ./results/bun-postgres-default.txt
+        env:
+          DATABASE_URL: postgres://postgres:postgres@0.0.0.0:5432/postgres?schema=public
+          MAX_CONNECTION: DEFAULT
+          PG_HOST: 0.0.0.0
+      - name: Bun Postgres ORMs benchmark using MAX connections
+        run: |
+          bun prisma generate --schema=./prisma/schema.postgres.prisma > /dev/null
+          bun --bun run postgres.bench.ts > ./results/bun-postgres-max.txt
+        env:
+          DATABASE_URL: postgres://postgres:postgres@0.0.0.0:5432/postgres?schema=public
+          MAX_CONNECTION: MAX
+          PG_HOST: 0.0.0.0
+      - name: Bun Postgres ORMs benchmark using CPU_COUNT as max connections
+        run: |
+          bun prisma generate --schema=./prisma/schema.postgres.prisma > /dev/null
+          bun --bun run postgres.bench.ts > ./results/bun-postgres-cpu-count.txt
+        env:
+          DATABASE_URL: postgres://postgres:postgres@0.0.0.0:5432/postgres?schema=public
+          MAX_CONNECTION: CPU_COUNT
+          PG_HOST: 0.0.0.0
+      - name: Bun Postgres ORMs benchmark using only a single connections
+        run: |
+          bun prisma generate --schema=./prisma/schema.postgres.prisma > /dev/null
+          bun --bun run postgres.bench.ts > ./results/bun-postgres-single.txt
+        env:
+          DATABASE_URL: postgres://postgres:postgres@0.0.0.0:5432/postgres?schema=public
+          MAX_CONNECTION: 1
+          PG_HOST: 0.0.0.0
+      
+      - name: Commit changes
+        run: |
+          git config --local user.email "imam@fahru.my.id"
+          git config --local user.name "masfahru"
+          git add -A
+          
+          git commit -m "🚀 Update Benchmark"
+          
+      - name: GitHub Push
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          branch: ${{ github.ref }}
+          directory: "."
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+  
+          

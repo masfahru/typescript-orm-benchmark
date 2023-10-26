@@ -1,0 +1,31 @@
+{
+  "name": "typescript-orm-benchmark",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/mysql": "^2.15.23",
+    "@types/pg": "^8.10.7",
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.2.0",
+    "@mikro-orm/core": "^5.9.0",
+    "@mikro-orm/mysql": "^5.9.0",
+    "@mikro-orm/postgresql": "^5.9.0",
+    "@prisma/client": "^5.5.1",
+    "drizzle-orm": "^0.28.6",
+    "knex": "^3.0.1",
+    "kysely": "^0.26.3",
+    "mariadb": "^3.2.2",
+    "mitata": "^0.1.6",
+    "mysql2": "^3.6.2",
+    "pg": "^8.11.3",
+    "postgres": "~3.4.1",
+    "prisma": "latest",
+    "sequelize": "^6.33.0",
+    "ts-node": "^10.9.1"
+  }
+}
