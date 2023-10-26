@@ -1,6 +1,13 @@
 import { PrismaClient } from '@prisma/client';
+import { mySqlConfig } from '../config';
 
-const prisma = new PrismaClient();
+const prismaClientOptions = {
+  datasourceUrl: mySqlConfig.connectionLimit
+    ? process.env.DATABASE_URL
+    : `${process.env.DATABASE_URL}&connection_limit=${mySqlConfig.connectionLimit}`,
+};
+
+const prisma = new PrismaClient(prismaClientOptions);
 
 export const prismaMySqlGetUser = async (id: number) =>
   await prisma.users.findFirst({
