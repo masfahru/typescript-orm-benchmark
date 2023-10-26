@@ -1,0 +1,25 @@
+cpu: Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
+runtime: node v20.8.1 (x64-linux)
+
+benchmark       time (avg)             (min … max)       p75       p99      p995
+-------------------------------------------------- -----------------------------
+• MySQL
+-------------------------------------------------- -----------------------------
+DrizzleORM   683.2 µs/iter  (519.91 µs … 10.03 ms) 630.12 µs   2.97 ms   4.07 ms
+KnexJS      502.69 µs/iter   (442.91 µs … 4.73 ms) 505.61 µs 899.82 µs   1.43 ms
+Kysely      399.64 µs/iter   (293.21 µs … 5.03 ms) 398.91 µs   1.11 ms   2.14 ms
+Mariadb     291.63 µs/iter   (216.31 µs … 2.88 ms) 285.71 µs   1.28 ms   1.74 ms
+MikroORM    698.93 µs/iter     (35.3 µs … 7.62 ms) 804.52 µs   2.16 ms    4.4 ms
+MySQL2      343.94 µs/iter   (264.11 µs … 5.17 ms) 340.81 µs    1.2 ms   1.85 ms
+Prisma      672.47 µs/iter   (556.81 µs … 6.29 ms) 674.62 µs   1.41 ms   2.03 ms
+Sequelize   682.66 µs/iter   (483.41 µs … 7.77 ms) 638.62 µs   2.71 ms   4.13 ms
+
+summary for MySQL
+  Mariadb
+   1.18x faster than MySQL2
+   1.37x faster than Kysely
+   1.72x faster than KnexJS
+   2.31x faster than Prisma
+   2.34x faster than Sequelize
+   2.34x faster than DrizzleORM
+   2.4x faster than MikroORM

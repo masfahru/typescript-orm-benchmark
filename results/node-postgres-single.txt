@@ -1,0 +1,25 @@
+cpu: Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
+runtime: node v20.8.1 (x64-linux)
+
+benchmark        time (avg)             (min … max)       p75       p99      p995
+--------------------------------------------------- -----------------------------
+• PostgreSQL
+--------------------------------------------------- -----------------------------
+DrizzleORM   788.69 µs/iter   (609.92 µs … 6.04 ms) 740.62 µs   4.63 ms   5.23 ms
+KnexJS       596.54 µs/iter   (434.01 µs … 3.75 ms) 560.41 µs   2.58 ms   3.04 ms
+Kysely       497.29 µs/iter   (330.11 µs … 7.18 ms) 466.01 µs   2.24 ms   3.24 ms
+MikroORM     794.16 µs/iter     (35.4 µs … 7.51 ms) 767.92 µs   4.53 ms    5.2 ms
+Pg            349.1 µs/iter   (259.21 µs … 4.04 ms) 392.01 µs 617.02 µs    1.2 ms
+Postgres.js  212.69 µs/iter    (165.3 µs … 4.57 ms) 223.31 µs 311.31 µs 540.81 µs
+Prisma        654.3 µs/iter   (569.41 µs … 6.31 ms) 640.32 µs   1.22 ms   2.82 ms
+Sequelize    649.82 µs/iter   (411.51 µs … 9.19 ms) 591.41 µs   3.46 ms   5.18 ms
+
+summary for PostgreSQL
+  Postgres.js
+   1.64x faster than Pg
+   2.34x faster than Kysely
+   2.8x faster than KnexJS
+   3.06x faster than Sequelize
+   3.08x faster than Prisma
+   3.71x faster than DrizzleORM
+   3.73x faster than MikroORM
