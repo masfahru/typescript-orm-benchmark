@@ -1,25 +1,46 @@
-cpu: Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
+cpu: Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz
 runtime: bun 1.0.7 (x64-linux)
 
 benchmark       time (avg)             (min … max)       p75       p99      p995
 -------------------------------------------------- -----------------------------
 • MySQL
 -------------------------------------------------- -----------------------------
-DrizzleORM  956.35 µs/iter  (385.51 µs … 16.45 ms) 972.92 µs   4.08 ms   4.51 ms
-KnexJS      517.76 µs/iter   (325.51 µs … 5.48 ms) 464.61 µs   3.01 ms   3.22 ms
-Kysely      379.93 µs/iter   (257.61 µs … 5.16 ms) 341.41 µs   2.12 ms   2.23 ms
-Mariadb     410.47 µs/iter   (236.71 µs … 3.86 ms) 319.41 µs   2.35 ms   2.78 ms
-MikroORM    845.14 µs/iter        (35 µs … 6.5 ms) 846.02 µs   3.66 ms    4.8 ms
-MySQL2      306.56 µs/iter    (206.5 µs … 7.16 ms) 281.31 µs   1.85 ms   2.18 ms
-Prisma       688.9 µs/iter   (519.31 µs … 3.75 ms) 623.02 µs   2.46 ms   2.55 ms
-Sequelize   719.93 µs/iter   (444.31 µs … 10.3 ms) 636.12 µs   3.63 ms   3.98 ms
+DrizzleORM    1.56 ms/iter   (562.8 µs … 22.32 ms)   1.56 ms   6.36 ms   9.74 ms
+KnexJS      989.48 µs/iter     (458 µs … 13.45 ms)  821.5 µs   7.04 ms   7.69 ms
+Kysely      573.61 µs/iter    (349.1 µs … 7.77 ms)  527.1 µs   2.88 ms   3.32 ms
+Mariadb     695.45 µs/iter    (307.3 µs … 6.64 ms)    523 µs   4.25 ms   5.17 ms
+MikroORM      1.16 ms/iter     (48.9 µs … 6.25 ms)   1.16 ms   4.68 ms   4.79 ms
+MySQL       855.46 µs/iter    (511.5 µs … 7.12 ms)  762.7 µs   3.32 ms    4.8 ms
+MySQL2      519.12 µs/iter   (311.2 µs … 21.89 ms)  441.4 µs   2.59 ms   3.57 ms
+Prisma      error: 
+Invalid `prisma.users.findFirst()` invocation:
+
+
+Error querying the database: Server error: `ERROR 08004 (1040): Too many connections'
+PrismaClientInitializationError: 
+Invalid `prisma.users.findFirst()` invocation:
+
+
+Error querying the database: Server error: `ERROR 08004 (1040): Too many connections'
+    at new e (/home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/node_modules/@prisma/client/runtime/library.js:25:1951)
+    at handleRequestError (/home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/node_modules/@prisma/client/runtime/library.js:122:7222)
+    at handleAndLogRequestError (/home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/node_modules/@prisma/client/runtime/library.js:122:6227)
+    at <anonymous> (/home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/node_modules/@prisma/client/runtime/library.js:122:6006)
+    at processTicksAndRejections (:61:39)
+Sequelize   error: Too many connections
+SequelizeConnectionError: Too many connections
+    at new BaseError (/home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/node_modules/sequelize/lib/errors/base-error.js:13:9)
+    at new ConnectionError (/home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/node_modules/sequelize/lib/errors/connection-error.js:35:4)
+    at <anonymous> (/home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/node_modules/sequelize/lib/dialects/mysql/connection-manager.js:101:55)
+    at processTicksAndRejections (:61:39)
+TypeORM       1.29 ms/iter   (764.5 µs … 13.81 ms)   1.15 ms   5.05 ms   7.53 ms
 
 summary for MySQL
   MySQL2
-   1.24x faster than Kysely
+   1.1x faster than Kysely
    1.34x faster than Mariadb
-   1.69x faster than KnexJS
-   2.25x faster than Prisma
-   2.35x faster than Sequelize
-   2.76x faster than MikroORM
-   3.12x faster than DrizzleORM
+   1.65x faster than MySQL
+   1.91x faster than KnexJS
+   2.23x faster than MikroORM
+   2.49x faster than TypeORM
+   3x faster than DrizzleORM
