@@ -7,8 +7,10 @@ import {
   mariadbGetUser,
   mikroMySqlGetUser,
   mySql2GetUser,
+  mySqlGetUser,
   prismaMySqlGetUser,
   sequelizeMySqlGetUser,
+  typeormMySqlGetUser,
 } from './src/mysql';
 
 group('MySQL', async () => {
@@ -17,13 +19,15 @@ group('MySQL', async () => {
   bench('Kysely', async () => await getUser(kyselyMySqlGetUser));
   bench('Mariadb', async () => await getUser(mariadbGetUser));
   bench('MikroORM', async () => await getUser(mikroMySqlGetUser));
+  bench('MySQL', async () => await getUser(mySqlGetUser));
   bench('MySQL2', async () => await getUser(mySql2GetUser));
   bench('Prisma', async () => await getUser(prismaMySqlGetUser));
   bench('Sequelize', async () => await getUser(sequelizeMySqlGetUser));
+  bench('TypeORM', async () => await getUser(typeormMySqlGetUser));
 });
 
 await run({
   colors: false,
 });
 
-process.exit(0)
+process.exit(0);

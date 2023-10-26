@@ -1,4 +1,4 @@
-import { run, bench, group, baseline } from 'mitata';
+import { run, bench, group } from 'mitata';
 import { getUser } from './src/helpers';
 import {
   drizzlePostgreGetUser,
@@ -9,6 +9,7 @@ import {
   postgresGetUser,
   prismaPostgresGetUser,
   sequelizePostgresGetUser,
+  typeormPostgresGetUser,
 } from './src/postgres';
 
 group('PostgreSQL', () => {
@@ -20,10 +21,11 @@ group('PostgreSQL', () => {
   bench('Postgres.js', async () => await getUser(postgresGetUser));
   bench('Prisma', async () => await getUser(prismaPostgresGetUser));
   bench('Sequelize', async () => await getUser(sequelizePostgresGetUser));
+  bench('TypeORM', async () => await getUser(typeormPostgresGetUser));
 });
 
 await run({
   colors: false,
 });
 
-process.exit(0)
+process.exit(0);

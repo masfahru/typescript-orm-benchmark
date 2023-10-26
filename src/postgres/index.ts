@@ -6,3 +6,4 @@ export * from './pg';
 export * from './postgres';
 export * from './prisma';
 export * from './sequelize';
+export * from './typeorm';

@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'bun:test';
+import { describe, it, expect, afterAll } from 'bun:test';
 import { drizzleClose, drizzleMySqlGetUser } from './drizzle';
 import { knexClose, knexMySqlGetUser } from './knex';
 import { kyselyClose, kyselyMySqlGetUser } from './kysely';
@@ -7,6 +7,8 @@ import { mySql2Close, mySql2GetUser } from './mysql2';
 import { prismaClose, prismaMySqlGetUser } from './prisma';
 import { sequelizeClose, sequelizeMySqlGetUser } from './sequelize';
 import { mikroClose, mikroMySqlGetUser } from './mikro';
+import { typeormClose, typeormMySqlGetUser } from './typeorm';
+import { mySqlClose, mySqlGetUser } from './mysql';
 
 describe('[MySQL] unit tests', () => {
   const checkUnit = async (fun: (id: number) => Promise<any>) => {
@@ -39,6 +41,11 @@ describe('[MySQL] unit tests', () => {
     await mikroClose();
   });
 
+  it('MySQL', async () => {
+    await checkUnit(mySqlGetUser);
+    mySqlClose();
+  });
+
   it('MySQL2', async () => {
     await checkUnit(mySql2GetUser);
     await mySql2Close();
@@ -52,5 +59,10 @@ describe('[MySQL] unit tests', () => {
   it('Sequelize', async () => {
     await checkUnit(sequelizeMySqlGetUser);
     await sequelizeClose();
+  });
+
+  it('TypeORM', async () => {
+    await checkUnit(typeormMySqlGetUser);
+    await typeormClose();
   });
 });

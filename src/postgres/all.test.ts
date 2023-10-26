@@ -7,6 +7,7 @@ import { prismaClose, prismaPostgresGetUser } from './prisma';
 import { sequelizeClose, sequelizePostgresGetUser } from './sequelize';
 import { pgClose, pgGetUser } from './pg';
 import { postgresClose, postgresGetUser } from './postgres';
+import { typeormClose, typeormPostgresGetUser } from './typeorm';
 
 describe('[PostgreSQL] unit tests', () => {
   const checkUnit = async (fun: (id: number) => Promise<any>) => {
@@ -52,5 +53,10 @@ describe('[PostgreSQL] unit tests', () => {
   it('Sequelize', async () => {
     await checkUnit(sequelizePostgresGetUser);
     await sequelizeClose();
+  });
+
+  it('TypeORM', async () => {
+    await checkUnit(typeormPostgresGetUser);
+    await typeormClose();
   });
 });

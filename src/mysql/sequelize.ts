@@ -4,7 +4,7 @@ import { mySqlConfig } from '../config';
 const { connectionLimit, ...config } = mySqlConfig;
 
 const options: Options = {
-  dialect: 'mariadb',
+  dialect: 'mysql',
   host: config.host,
   username: config.user,
   password: config.password,
