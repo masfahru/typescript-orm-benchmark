@@ -32,7 +32,7 @@ if (maxConnection !== 'DEFAULT') {
 
     mySqlConfig.connectionLimit = await mysql
       .execute('SHOW VARIABLES LIKE "max_connections"')
-      .then((res) => Math.floor(Number(res[0].Value) * 0.95));
+      .then((res) => Math.floor(Number(res[0].Value) * 0.9));
     postgresConfig.max = await sql`SHOW max_connections`.then((res) =>
       Number(res[0].max_connections)
     );
