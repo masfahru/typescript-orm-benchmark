@@ -3,8 +3,8 @@ import { mySqlConfig } from '../config';
 
 const prismaClientOptions = {
   datasourceUrl: mySqlConfig.connectionLimit
-    ? process.env.DATABASE_URL
-    : `${process.env.DATABASE_URL}&connection_limit=${mySqlConfig.connectionLimit}`,
+    ? `${process.env.DATABASE_URL}&connection_limit=${mySqlConfig.connectionLimit}`
+    : process.env.DATABASE_URL,
 };
 
 const prisma = new PrismaClient(prismaClientOptions);
