@@ -65,7 +65,8 @@ jobs:
           bun prisma generate --schema=./prisma/schema.postgres.prisma > /dev/null
           bun --bun test
         env:
-          DATABASE_URL: postgres://postgres:postgres@0.0.0.0:5432/postgres?schema=public
+          DATABASE_URL: postgres://postgres:postgres@0.0.0.0:5432/postgres
+          MAX_CONNECTION: DEFAULT
           PG_HOST: 0.0.0.0
           MYSQL_HOST: 0.0.0.0
       - name: Bun MySQL ORMs benchmark using DEFAULT connections
@@ -73,7 +74,7 @@ jobs:
           bun prisma generate --schema=./prisma/schema.mysql.prisma > /dev/null
           bun --bun run mysql.bench.ts > ./results/bun-mysql-default.txt
         env:
-          DATABASE_URL: mysql://mysqltest:mysqltest@0.0.0.0:3306/mysqltest?schema=public
+          DATABASE_URL: mysql://mysqltest:mysqltest@0.0.0.0:3306/mysqltest
           MAX_CONNECTION: DEFAULT
           MYSQL_HOST: 0.0.0.0
       - name: Bun MySQL ORMs benchmark using MAX connections
@@ -81,7 +82,7 @@ jobs:
           bun prisma generate --schema=./prisma/schema.mysql.prisma > /dev/null
           bun --bun run mysql.bench.ts > ./results/bun-mysql-max.txt
         env:
-          DATABASE_URL: mysql://mysqltest:mysqltest@0.0.0.0:3306/mysqltest?schema=public
+          DATABASE_URL: mysql://mysqltest:mysqltest@0.0.0.0:3306/mysqltest
           MAX_CONNECTION: MAX
           MYSQL_HOST: 0.0.0.0
       - name: Bun MySQL ORMs benchmark using CPU_COUNT as max connections
@@ -89,7 +90,7 @@ jobs:
           bun prisma generate --schema=./prisma/schema.mysql.prisma > /dev/null
           bun --bun run mysql.bench.ts > ./results/bun-mysql-cpu-count.txt
         env:
-          DATABASE_URL: mysql://mysqltest:mysqltest@0.0.0.0:3306/mysqltest?schema=public
+          DATABASE_URL: mysql://mysqltest:mysqltest@0.0.0.0:3306/mysqltest
           MAX_CONNECTION: CPU_COUNT
           MYSQL_HOST: 0.0.0.0
       - name: Bun MySQL ORMs benchmark using only a single connections
@@ -97,7 +98,7 @@ jobs:
           bun prisma generate --schema=./prisma/schema.mysql.prisma > /dev/null
           bun --bun run mysql.bench.ts > ./results/bun-mysql-single.txt
         env:
-          DATABASE_URL: mysql://mysqltest:mysqltest@0.0.0.0:3306/mysqltest?schema=public
+          DATABASE_URL: mysql://mysqltest:mysqltest@0.0.0.0:3306/mysqltest
           MAX_CONNECTION: 1
           MYSQL_HOST: 0.0.0.0
       - name: Bun Postgres ORMs benchmark using DEFAULT connections
@@ -105,7 +106,7 @@ jobs:
           bun prisma generate --schema=./prisma/schema.postgres.prisma > /dev/null
           bun --bun run postgres.bench.ts > ./results/bun-postgres-default.txt
         env:
-          DATABASE_URL: postgres://postgres:postgres@0.0.0.0:5432/postgres?schema=public
+          DATABASE_URL: postgres://postgres:postgres@0.0.0.0:5432/postgres
           MAX_CONNECTION: DEFAULT
           PG_HOST: 0.0.0.0
       - name: Bun Postgres ORMs benchmark using MAX connections
@@ -113,7 +114,7 @@ jobs:
           bun prisma generate --schema=./prisma/schema.postgres.prisma > /dev/null
           bun --bun run postgres.bench.ts > ./results/bun-postgres-max.txt
         env:
-          DATABASE_URL: postgres://postgres:postgres@0.0.0.0:5432/postgres?schema=public
+          DATABASE_URL: postgres://postgres:postgres@0.0.0.0:5432/postgres
           MAX_CONNECTION: MAX
           PG_HOST: 0.0.0.0
       - name: Bun Postgres ORMs benchmark using CPU_COUNT as max connections
@@ -121,7 +122,7 @@ jobs:
           bun prisma generate --schema=./prisma/schema.postgres.prisma > /dev/null
           bun --bun run postgres.bench.ts > ./results/bun-postgres-cpu-count.txt
         env:
-          DATABASE_URL: postgres://postgres:postgres@0.0.0.0:5432/postgres?schema=public
+          DATABASE_URL: postgres://postgres:postgres@0.0.0.0:5432/postgres
           MAX_CONNECTION: CPU_COUNT
           PG_HOST: 0.0.0.0
       - name: Bun Postgres ORMs benchmark using only a single connections
@@ -129,7 +130,7 @@ jobs:
           bun prisma generate --schema=./prisma/schema.postgres.prisma > /dev/null
           bun --bun run postgres.bench.ts > ./results/bun-postgres-single.txt
         env:
-          DATABASE_URL: postgres://postgres:postgres@0.0.0.0:5432/postgres?schema=public
+          DATABASE_URL: postgres://postgres:postgres@0.0.0.0:5432/postgres
           MAX_CONNECTION: 1
           PG_HOST: 0.0.0.0
       - name: Node MySQL ORMs benchmark using DEFAULT connections
@@ -137,7 +138,7 @@ jobs:
           npx prisma generate --schema=./prisma/schema.mysql.prisma > /dev/null
           node --no-deprecation --import ./loader.mjs mysql.bench.ts > ./results/node-mysql-default.txt
         env:
-          DATABASE_URL: mysql://mysqltest:mysqltest@0.0.0.0:3306/mysqltest?schema=public
+          DATABASE_URL: mysql://mysqltest:mysqltest@0.0.0.0:3306/mysqltest
           MAX_CONNECTION: DEFAULT
           MYSQL_HOST: 0.0.0.0
       - name: Node MySQL ORMs benchmark using MAX connections
@@ -145,7 +146,7 @@ jobs:
           npx prisma generate --schema=./prisma/schema.mysql.prisma > /dev/null
           node --no-deprecation --import ./loader.mjs mysql.bench.ts > ./results/node-mysql-max.txt
         env:
-          DATABASE_URL: mysql://mysqltest:mysqltest@0.0.0.0:3306/mysqltest?schema=public
+          DATABASE_URL: mysql://mysqltest:mysqltest@0.0.0.0:3306/mysqltest
           MAX_CONNECTION: MAX
           MYSQL_HOST: 0.0.0.0
       - name: Node MySQL ORMs benchmark using CPU_COUNT as max connections
@@ -153,7 +154,7 @@ jobs:
           npx prisma generate --schema=./prisma/schema.mysql.prisma > /dev/null
           node --no-deprecation --import ./loader.mjs mysql.bench.ts > ./results/node-mysql-cpu-count.txt
         env:
-          DATABASE_URL: mysql://mysqltest:mysqltest@0.0.0.0:3306/mysqltest?schema=public
+          DATABASE_URL: mysql://mysqltest:mysqltest@0.0.0.0:3306/mysqltest
           MAX_CONNECTION: CPU_COUNT
           MYSQL_HOST: 0.0.0.0
       - name: Node MySQL ORMs benchmark using only a single connections
@@ -161,7 +162,7 @@ jobs:
           npx prisma generate --schema=./prisma/schema.mysql.prisma > /dev/null
           node --no-deprecation --import ./loader.mjs mysql.bench.ts > ./results/node-mysql-single.txt
         env:
-          DATABASE_URL: mysql://mysqltest:mysqltest@0.0.0.0:3306/mysqltest?schema=public
+          DATABASE_URL: mysql://mysqltest:mysqltest@0.0.0.0:3306/mysqltest
           MAX_CONNECTION: 1
           MYSQL_HOST: 0.0.0.0
       - name: Node Postgres ORMs benchmark using DEFAULT connections
@@ -169,7 +170,7 @@ jobs:
           npx prisma generate --schema=./prisma/schema.postgres.prisma > /dev/null
           node --no-deprecation --import ./loader.mjs postgres.bench.ts > ./results/node-postgres-default.txt
         env:
-          DATABASE_URL: postgres://postgres:postgres@0.0.0.0:5432/postgres?schema=public
+          DATABASE_URL: postgres://postgres:postgres@0.0.0.0:5432/postgres
           MAX_CONNECTION: DEFAULT
           PG_HOST: 0.0.0.0
       - name: Node Postgres ORMs benchmark using MAX connections
@@ -177,7 +178,7 @@ jobs:
           npx prisma generate --schema=./prisma/schema.postgres.prisma > /dev/null
           node --no-deprecation --import ./loader.mjs postgres.bench.ts > ./results/node-postgres-max.txt
         env:
-          DATABASE_URL: postgres://postgres:postgres@0.0.0.0:5432/postgres?schema=public
+          DATABASE_URL: postgres://postgres:postgres@0.0.0.0:5432/postgres
           MAX_CONNECTION: MAX
           PG_HOST: 0.0.0.0
       - name: Node Postgres ORMs benchmark using CPU_COUNT as max connections
@@ -185,7 +186,7 @@ jobs:
           npx prisma generate --schema=./prisma/schema.postgres.prisma > /dev/null
           node --no-deprecation --import ./loader.mjs postgres.bench.ts > ./results/node-postgres-cpu-count.txt
         env:
-          DATABASE_URL: postgres://postgres:postgres@0.0.0.0:5432/postgres?schema=public
+          DATABASE_URL: postgres://postgres:postgres@0.0.0.0:5432/postgres
           MAX_CONNECTION: CPU_COUNT
           PG_HOST: 0.0.0.0
       - name: Node Postgres ORMs benchmark using only a single connections
@@ -193,7 +194,7 @@ jobs:
           npx prisma generate --schema=./prisma/schema.postgres.prisma > /dev/null
           node --no-deprecation --import ./loader.mjs postgres.bench.ts > ./results/node-postgres-single.txt
         env:
-          DATABASE_URL: postgres://postgres:postgres@0.0.0.0:5432/postgres?schema=public
+          DATABASE_URL: postgres://postgres:postgres@0.0.0.0:5432/postgres
           MAX_CONNECTION: 1
           PG_HOST: 0.0.0.0
       - name: Commit changes
