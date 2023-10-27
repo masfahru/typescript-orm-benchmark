@@ -1,27 +1,27 @@
-cpu: Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz
+cpu: Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz
 runtime: node v20.9.0 (x64-linux)
 
 benchmark        time (avg)             (min … max)       p75       p99      p995
 --------------------------------------------------- -----------------------------
 • PostgreSQL
 --------------------------------------------------- -----------------------------
-DrizzleORM   651.22 µs/iter    (413.5 µs … 8.33 ms) 643.89 µs   3.62 ms   5.55 ms
-KnexJS       521.46 µs/iter    (364.7 µs … 4.86 ms)    572 µs    1.5 ms   2.56 ms
-Kysely       434.76 µs/iter    (261.8 µs … 5.71 ms)  486.9 µs   1.91 ms   2.69 ms
-MikroORM     619.85 µs/iter     (30.3 µs … 6.06 ms) 679.29 µs   3.22 ms   4.51 ms
-Pg           348.82 µs/iter    (240.1 µs … 4.39 ms)    389 µs  601.7 µs   1.58 ms
-Postgres.js   184.8 µs/iter     (141.5 µs … 6.6 ms)  179.9 µs  248.7 µs  387.6 µs
-Prisma       617.28 µs/iter    (536.5 µs … 4.73 ms)  620.7 µs 764.89 µs   1.57 ms
-Sequelize    530.61 µs/iter     (367.4 µs … 7.4 ms)  504.5 µs   2.27 ms   3.41 ms
-TypeORM      557.14 µs/iter    (379.1 µs … 6.33 ms)  541.5 µs   2.82 ms   3.61 ms
+DrizzleORM        1 ms/iter  (740.25 µs … 15.83 ms) 900.06 µs   4.49 ms   4.99 ms
+KnexJS       633.14 µs/iter   (422.03 µs … 5.99 ms) 620.84 µs   2.91 ms   4.51 ms
+Kysely       566.86 µs/iter   (346.82 µs … 4.38 ms) 622.14 µs    2.1 ms   2.48 ms
+MikroORM     779.09 µs/iter     (40.9 µs … 4.31 ms) 872.86 µs   3.33 ms   3.99 ms
+Pg           425.34 µs/iter   (295.72 µs … 7.15 ms) 524.44 µs   1.07 ms   2.14 ms
+Postgres.js  261.86 µs/iter   (179.81 µs … 7.19 ms) 261.22 µs 820.56 µs    1.9 ms
+Prisma       771.45 µs/iter    (623.85 µs … 5.2 ms) 757.96 µs   1.94 ms   3.58 ms
+Sequelize    718.49 µs/iter  (466.13 µs … 15.48 ms) 685.05 µs   2.43 ms   3.55 ms
+TypeORM      754.16 µs/iter   (540.04 µs … 5.52 ms) 833.96 µs   1.56 ms   3.16 ms
 
 summary for PostgreSQL
   Postgres.js
-   1.89x faster than Pg
-   2.35x faster than Kysely
-   2.82x faster than KnexJS
-   2.87x faster than Sequelize
-   3.01x faster than TypeORM
-   3.34x faster than Prisma
-   3.35x faster than MikroORM
-   3.52x faster than DrizzleORM
+   1.62x faster than Pg
+   2.16x faster than Kysely
+   2.42x faster than KnexJS
+   2.74x faster than Sequelize
+   2.88x faster than TypeORM
+   2.95x faster than Prisma
+   2.98x faster than MikroORM
+   3.82x faster than DrizzleORM

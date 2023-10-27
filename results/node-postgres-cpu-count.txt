@@ -1,45 +1,27 @@
-cpu: Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz
+cpu: Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz
 runtime: node v20.9.0 (x64-linux)
 
 benchmark        time (avg)             (min … max)       p75       p99      p995
 --------------------------------------------------- -----------------------------
 • PostgreSQL
 --------------------------------------------------- -----------------------------
-DrizzleORM   645.26 µs/iter    (463.3 µs … 7.82 ms)  664.7 µs   2.92 ms   4.01 ms
-KnexJS       570.33 µs/iter    (311.1 µs … 5.39 ms)  586.4 µs    2.7 ms   3.36 ms
-Kysely       468.48 µs/iter    (296.1 µs … 4.61 ms)  494.1 µs   2.16 ms   3.32 ms
-MikroORM     738.41 µs/iter    (33.6 µs … 11.51 ms) 741.39 µs   4.71 ms   5.24 ms
-Pg           334.75 µs/iter    (261.1 µs … 6.99 ms)  314.6 µs  739.6 µs   1.59 ms
-Postgres.js  191.47 µs/iter    (139.9 µs … 3.49 ms)  213.8 µs  296.3 µs  349.1 µs
-Prisma       error: 
-Invalid `prisma.users.findFirst()` invocation:
-
-
-Database `postgres&connection_limit=2` does not exist on the database server at `0.0.0.0:5432`.
-PrismaClientInitializationError: 
-Invalid `prisma.users.findFirst()` invocation:
-
-
-Database `postgres&connection_limit=2` does not exist on the database server at `0.0.0.0:5432`.
-    at Cn.handleRequestError (/home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/node_modules/@prisma/client/runtime/library.js:123:7090)
-    at Cn.handleAndLogRequestError (/home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/node_modules/@prisma/client/runtime/library.js:123:6206)
-    at Cn.request (/home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/node_modules/@prisma/client/runtime/library.js:123:5926)
-    at async l (/home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/node_modules/@prisma/client/runtime/library.js:128:9968)
-    at async prismaPostgresGetUser (file:///home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/src/postgres/prisma.ts:9:52)
-    at async getUser (file:///home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/src/helpers.ts:1:39)
-    at async file:///home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/postgres.bench.ts:11:33
-    at async async (file:///home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/node_modules/mitata/src/lib.mjs:141:7)
-    at async run (file:///home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/node_modules/mitata/src/cli.mjs:232:68)
-    at async file:///home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/postgres.bench.ts:15:1
-Sequelize    657.79 µs/iter   (395.3 µs … 11.95 ms)  567.5 µs   4.19 ms   5.11 ms
-TypeORM      624.14 µs/iter    (397.5 µs … 6.31 ms)  655.7 µs   2.12 ms   3.02 ms
+DrizzleORM   854.89 µs/iter   (671.54 µs … 5.18 ms) 864.76 µs   1.73 ms    4.2 ms
+KnexJS       747.23 µs/iter   (497.93 µs … 8.96 ms) 710.85 µs   3.51 ms   4.45 ms
+Kysely       573.16 µs/iter   (382.23 µs … 4.43 ms) 598.94 µs   2.66 ms    3.8 ms
+MikroORM     810.38 µs/iter     (43.5 µs … 8.46 ms) 889.26 µs   3.62 ms    4.2 ms
+Pg           396.04 µs/iter   (267.12 µs … 3.65 ms) 422.03 µs 955.06 µs   1.87 ms
+Postgres.js  273.05 µs/iter    (179.41 µs … 7.2 ms) 263.82 µs   1.33 ms   2.21 ms
+Prisma       754.24 µs/iter   (640.34 µs … 4.53 ms) 753.05 µs   1.91 ms   2.85 ms
+Sequelize    701.01 µs/iter   (535.63 µs … 9.65 ms) 670.04 µs    2.8 ms   4.84 ms
+TypeORM      770.37 µs/iter      (514.53 µs … 6 ms) 761.05 µs   4.65 ms   5.43 ms
 
 summary for PostgreSQL
   Postgres.js
-   1.75x faster than Pg
-   2.45x faster than Kysely
-   2.98x faster than KnexJS
-   3.26x faster than TypeORM
-   3.37x faster than DrizzleORM
-   3.44x faster than Sequelize
-   3.86x faster than MikroORM
+   1.45x faster than Pg
+   2.1x faster than Kysely
+   2.57x faster than Sequelize
+   2.74x faster than KnexJS
+   2.76x faster than Prisma
+   2.82x faster than TypeORM
+   2.97x faster than MikroORM
+   3.13x faster than DrizzleORM

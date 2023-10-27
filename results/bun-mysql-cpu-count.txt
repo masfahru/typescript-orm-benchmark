@@ -1,42 +1,29 @@
-cpu: Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz
+cpu: Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz
 runtime: bun 1.0.7 (x64-linux)
 
 benchmark       time (avg)             (min … max)       p75       p99      p995
 -------------------------------------------------- -----------------------------
 • MySQL
 -------------------------------------------------- -----------------------------
-DrizzleORM  529.31 µs/iter    (362.8 µs … 2.79 ms)  498.2 µs   2.24 ms   2.41 ms
-KnexJS      431.45 µs/iter     (250.3 µs … 4.5 ms)  400.4 µs   2.29 ms   3.24 ms
-Kysely      347.28 µs/iter       (253.7 µs … 5 ms)  311.2 µs   1.68 ms   2.04 ms
-Mariadb     273.61 µs/iter    (155.3 µs … 3.99 ms)    258 µs    1.6 ms   1.72 ms
-MikroORM    790.06 µs/iter     (31.2 µs … 5.36 ms) 838.89 µs   3.63 ms   4.85 ms
-MySQL       496.49 µs/iter      (357 µs … 4.35 ms)  445.9 µs   1.96 ms   2.24 ms
-MySQL2      269.62 µs/iter      (171 µs … 2.09 ms)  256.2 µs    1.6 ms   1.67 ms
-Prisma      error: 
-Invalid `prisma.users.findFirst()` invocation:
-
-
-User `mysqltest` was denied access on the database `mysqltest&connection_limit=2`
-PrismaClientInitializationError: 
-Invalid `prisma.users.findFirst()` invocation:
-
-
-User `mysqltest` was denied access on the database `mysqltest&connection_limit=2`
-    at new e (/home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/node_modules/@prisma/client/runtime/library.js:25:1951)
-    at handleRequestError (/home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/node_modules/@prisma/client/runtime/library.js:122:7222)
-    at handleAndLogRequestError (/home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/node_modules/@prisma/client/runtime/library.js:122:6227)
-    at <anonymous> (/home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/node_modules/@prisma/client/runtime/library.js:122:6006)
-    at processTicksAndRejections (:61:39)
-Sequelize   609.31 µs/iter    (369.7 µs … 5.35 ms) 583.39 µs   2.85 ms   3.02 ms
-TypeORM     768.08 µs/iter    (487.7 µs … 6.29 ms) 692.39 µs   3.72 ms   4.22 ms
+DrizzleORM  789.44 µs/iter   (479.34 µs … 5.51 ms) 717.86 µs   3.44 ms   4.35 ms
+KnexJS      643.93 µs/iter   (360.83 µs … 7.56 ms) 602.35 µs   3.71 ms   4.45 ms
+Kysely      478.62 µs/iter   (305.43 µs … 4.74 ms) 425.44 µs    2.7 ms   2.83 ms
+Mariadb        391 µs/iter   (213.81 µs … 4.21 ms) 349.22 µs   2.51 ms   2.86 ms
+MikroORM    976.17 µs/iter     (40.7 µs … 5.57 ms)      1 ms   4.37 ms   4.87 ms
+MySQL       665.81 µs/iter   (471.23 µs … 6.32 ms) 589.24 µs    2.8 ms   3.39 ms
+MySQL2      398.88 µs/iter   (251.52 µs … 4.07 ms) 344.72 µs   2.39 ms   2.66 ms
+Prisma      934.51 µs/iter  (630.74 µs … 12.29 ms) 776.45 µs    3.8 ms    4.8 ms
+Sequelize   863.72 µs/iter   (527.55 µs … 6.81 ms) 793.85 µs   3.71 ms   3.77 ms
+TypeORM       1.09 ms/iter   (714.86 µs … 8.64 ms) 939.28 µs   4.14 ms   4.77 ms
 
 summary for MySQL
-  MySQL2
-   1.01x faster than Mariadb
-   1.29x faster than Kysely
-   1.6x faster than KnexJS
-   1.84x faster than MySQL
-   1.96x faster than DrizzleORM
-   2.26x faster than Sequelize
-   2.85x faster than TypeORM
-   2.93x faster than MikroORM
+  Mariadb
+   1.02x faster than MySQL2
+   1.22x faster than Kysely
+   1.65x faster than KnexJS
+   1.7x faster than MySQL
+   2.02x faster than DrizzleORM
+   2.21x faster than Sequelize
+   2.39x faster than Prisma
+   2.5x faster than MikroORM
+   2.8x faster than TypeORM
