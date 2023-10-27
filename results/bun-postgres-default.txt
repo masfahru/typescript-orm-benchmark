@@ -1,48 +1,27 @@
-cpu: Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz
+cpu: Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz
 runtime: bun 1.0.7 (x64-linux)
 
 benchmark        time (avg)             (min … max)       p75       p99      p995
 --------------------------------------------------- -----------------------------
 • PostgreSQL
 --------------------------------------------------- -----------------------------
-DrizzleORM   956.04 µs/iter  (553.71 µs … 10.86 ms) 799.82 µs   4.64 ms   5.85 ms
-KnexJS       826.84 µs/iter   (422.61 µs … 9.18 ms) 699.41 µs   4.74 ms    6.3 ms
-Kysely       636.18 µs/iter   (351.51 µs … 6.54 ms) 554.51 µs   3.69 ms   4.42 ms
-MikroORM       1.24 ms/iter    (58.2 µs … 13.66 ms)   1.18 ms    7.3 ms   7.72 ms
-Pg            471.1 µs/iter    (304.4 µs … 4.58 ms) 397.21 µs   2.57 ms   3.11 ms
-Postgres.js  280.71 µs/iter    (171.9 µs … 4.52 ms)    242 µs   2.38 ms   2.59 ms
-Prisma       error: 
-Invalid `prisma.users.findFirst()` invocation in
-/home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/src/postgres/prisma.ts:13:11
-
-  10 const prisma = new PrismaClient(prismaClientOptions);
-  11 
-  12 export const prismaPostgresGetUser = async (id: number) =>
-→ 13   await prisma.users.findFirst(
-The provided database string is invalid. The provided arguments are not supported in database URL. Please refer to the documentation in https://www.prisma.io/docs/reference/database-reference/connection-urls for constructing a correct connection string. In some cases, certain characters must be escaped. Please check the string for any illegal characters.
-PrismaClientInitializationError: 
-Invalid `prisma.users.findFirst()` invocation in
-/home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/src/postgres/prisma.ts:13:11
-
-  10 const prisma = new PrismaClient(prismaClientOptions);
-  11 
-  12 export const prismaPostgresGetUser = async (id: number) =>
-→ 13   await prisma.users.findFirst(
-The provided database string is invalid. The provided arguments are not supported in database URL. Please refer to the documentation in https://www.prisma.io/docs/reference/database-reference/connection-urls for constructing a correct connection string. In some cases, certain characters must be escaped. Please check the string for any illegal characters.
-    at new e (/home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/node_modules/@prisma/client/runtime/library.js:25:1951)
-    at handleRequestError (/home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/node_modules/@prisma/client/runtime/library.js:122:7222)
-    at handleAndLogRequestError (/home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/node_modules/@prisma/client/runtime/library.js:122:6227)
-    at <anonymous> (/home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/node_modules/@prisma/client/runtime/library.js:122:6006)
-    at processTicksAndRejections (:61:39)
-Sequelize    835.39 µs/iter   (481.91 µs … 6.33 ms) 723.71 µs    4.4 ms   4.51 ms
-TypeORM        1.05 ms/iter  (548.01 µs … 15.56 ms) 863.82 µs   5.38 ms   6.88 ms
+DrizzleORM    655.7 µs/iter    (425.6 µs … 7.77 ms) 587.89 µs   2.46 ms   3.03 ms
+KnexJS       546.53 µs/iter     (314.6 µs … 3.7 ms) 600.79 µs   2.74 ms   3.05 ms
+Kysely       450.91 µs/iter    (293.4 µs … 8.97 ms)    418 µs   2.15 ms   3.77 ms
+MikroORM     674.61 µs/iter     (17.6 µs … 9.12 ms) 741.49 µs   3.17 ms   3.53 ms
+Pg           321.42 µs/iter    (208.1 µs … 3.46 ms)  286.9 µs   1.75 ms   1.85 ms
+Postgres.js  193.82 µs/iter     (125.4 µs … 3.1 ms)  180.1 µs   1.36 ms   1.54 ms
+Prisma       622.62 µs/iter    (441.1 µs … 4.73 ms)  572.7 µs   2.34 ms   2.67 ms
+Sequelize    514.57 µs/iter     (336.9 µs … 6.1 ms)  487.1 µs   2.37 ms   2.73 ms
+TypeORM      612.83 µs/iter      (362 µs … 7.19 ms)  632.7 µs   2.36 ms   3.43 ms
 
 summary for PostgreSQL
   Postgres.js
-   1.68x faster than Pg
-   2.27x faster than Kysely
-   2.95x faster than KnexJS
-   2.98x faster than Sequelize
-   3.41x faster than DrizzleORM
-   3.74x faster than TypeORM
-   4.42x faster than MikroORM
+   1.66x faster than Pg
+   2.33x faster than Kysely
+   2.65x faster than Sequelize
+   2.82x faster than KnexJS
+   3.16x faster than TypeORM
+   3.21x faster than Prisma
+   3.38x faster than DrizzleORM
+   3.48x faster than MikroORM

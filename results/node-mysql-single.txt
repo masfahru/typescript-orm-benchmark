@@ -1,29 +1,47 @@
-cpu: Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz
+cpu: Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz
 runtime: node v20.9.0 (x64-linux)
 
 benchmark       time (avg)             (min … max)       p75       p99      p995
 -------------------------------------------------- -----------------------------
 • MySQL
 -------------------------------------------------- -----------------------------
-DrizzleORM  872.75 µs/iter  (634.61 µs … 10.96 ms) 820.51 µs   4.19 ms   7.62 ms
-KnexJS      595.28 µs/iter   (515.51 µs … 4.44 ms) 595.91 µs    1.4 ms   1.64 ms
-Kysely      494.02 µs/iter   (357.81 µs … 7.69 ms) 462.61 µs   1.59 ms   3.25 ms
-Mariadb     344.13 µs/iter   (245.71 µs … 5.51 ms) 328.61 µs   1.55 ms   2.47 ms
-MikroORM    938.63 µs/iter      (42 µs … 11.28 ms) 989.12 µs   3.07 ms   4.92 ms
-MySQL       746.24 µs/iter   (597.81 µs … 5.79 ms) 722.31 µs   2.96 ms   3.53 ms
-MySQL2      443.94 µs/iter   (349.91 µs … 7.15 ms) 412.21 µs   1.78 ms    2.3 ms
-Prisma      785.97 µs/iter   (667.81 µs … 6.98 ms) 763.91 µs   2.15 ms   3.65 ms
-Sequelize    961.7 µs/iter   (612.71 µs … 9.49 ms) 837.82 µs   5.06 ms   6.08 ms
-TypeORM       1.09 ms/iter  (797.41 µs … 16.97 ms) 958.72 µs   4.95 ms   5.72 ms
+DrizzleORM  657.34 µs/iter    (478.9 µs … 7.82 ms)  603.5 µs   3.53 ms   5.02 ms
+KnexJS      460.48 µs/iter    (330.7 µs … 5.02 ms)  448.9 µs   1.49 ms    2.5 ms
+Kysely      330.17 µs/iter    (229.1 µs … 4.86 ms)  342.8 µs 995.69 µs   1.84 ms
+Mariadb     270.13 µs/iter    (199.6 µs … 4.73 ms)  274.7 µs 933.79 µs   1.45 ms
+MikroORM    642.13 µs/iter      (29.6 µs … 5.4 ms)  755.7 µs   3.42 ms   4.03 ms
+MySQL       520.39 µs/iter    (419.3 µs … 3.56 ms)  515.4 µs   1.43 ms    2.5 ms
+MySQL2      318.65 µs/iter    (249.7 µs … 6.65 ms)  307.8 µs      1 ms   1.62 ms
+Prisma      error: 
+Invalid `prisma.users.findFirst()` invocation:
+
+
+User `mysqltest` was denied access on the database `mysqltest&connection_limit=1`
+PrismaClientInitializationError: 
+Invalid `prisma.users.findFirst()` invocation:
+
+
+User `mysqltest` was denied access on the database `mysqltest&connection_limit=1`
+    at Cn.handleRequestError (/home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/node_modules/@prisma/client/runtime/library.js:123:7090)
+    at Cn.handleAndLogRequestError (/home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/node_modules/@prisma/client/runtime/library.js:123:6206)
+    at Cn.request (/home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/node_modules/@prisma/client/runtime/library.js:123:5926)
+    at async l (/home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/node_modules/@prisma/client/runtime/library.js:128:9968)
+    at async prismaMySqlGetUser (file:///home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/src/mysql/prisma.ts:9:49)
+    at async getUser (file:///home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/src/helpers.ts:1:39)
+    at async file:///home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/mysql.bench.ts:12:33
+    at async async (file:///home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/node_modules/mitata/src/lib.mjs:141:7)
+    at async run (file:///home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/node_modules/mitata/src/cli.mjs:232:68)
+    at async file:///home/runner/work/typescript-orm-benchmark/typescript-orm-benchmark/mysql.bench.ts:16:1
+Sequelize   645.35 µs/iter    (455.7 µs … 6.04 ms)  614.2 µs   2.84 ms   4.77 ms
+TypeORM      673.5 µs/iter     (531.9 µs … 5.2 ms)    678 µs   1.45 ms   2.94 ms
 
 summary for MySQL
   Mariadb
-   1.29x faster than MySQL2
-   1.44x faster than Kysely
-   1.73x faster than KnexJS
-   2.17x faster than MySQL
-   2.28x faster than Prisma
-   2.54x faster than DrizzleORM
-   2.73x faster than MikroORM
-   2.79x faster than Sequelize
-   3.18x faster than TypeORM
+   1.18x faster than MySQL2
+   1.22x faster than Kysely
+   1.7x faster than KnexJS
+   1.93x faster than MySQL
+   2.38x faster than MikroORM
+   2.39x faster than Sequelize
+   2.43x faster than DrizzleORM
+   2.49x faster than TypeORM
