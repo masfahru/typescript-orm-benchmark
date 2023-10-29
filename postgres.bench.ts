@@ -10,6 +10,7 @@ import {
   prismaPostgresGetUser,
   sequelizePostgresGetUser,
   typeormPostgresGetUser,
+  pgTypedGetUser,
 } from './src/postgres';
 
 group('PostgreSQL', () => {
@@ -18,6 +19,7 @@ group('PostgreSQL', () => {
   bench('Kysely', async () => await getUser(kyselyPostgresGetUser));
   bench('MikroORM', async () => await getUser(mikroPostgresGetUser));
   bench('Pg', async () => await getUser(pgGetUser));
+  bench('PgTyped', async () => await getUser(pgTypedGetUser));
   bench('Postgres.js', async () => await getUser(postgresGetUser));
   bench('Prisma', async () => await getUser(prismaPostgresGetUser));
   bench('Sequelize', async () => await getUser(sequelizePostgresGetUser));

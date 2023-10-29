@@ -3,6 +3,7 @@
   "module": "index.ts",
   "type": "module",
   "devDependencies": {
+    "@pgtyped/cli": "^2.3.0",
     "@types/mysql": "^2.15.23",
     "@types/pg": "^8.10.7",
     "@types/pg-pool": "^2.0.5",
@@ -16,6 +17,7 @@
     "@mikro-orm/core": "^5.9.0",
     "@mikro-orm/mysql": "^5.9.0",
     "@mikro-orm/postgresql": "^5.9.0",
+    "@pgtyped/runtime": "^2.3.0",
     "@prisma/client": "^5.5.2",
     "drizzle-orm": "^0.28.6",
     "knex": "^3.0.1",

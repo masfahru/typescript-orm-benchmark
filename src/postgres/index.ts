@@ -3,6 +3,7 @@ export * from './knex';
 export * from './kysely';
 export * from './mikro';
 export * from './pg';
+export * from './pg-typed';
 export * from './postgres';
 export * from './prisma';
 export * from './sequelize';
