@@ -8,6 +8,8 @@ on:
     - cron: '0 0 * * 1'
   workflow_dispatch:
 
+permissions: write-all
+
 jobs:
   bench:
     name: Bench
@@ -47,7 +49,8 @@ jobs:
         run: mysql --host 0.0.0.0 --port 3306 -uroot -e "ALTER USER 'mysqltest' IDENTIFIED WITH mysql_native_password BY 'mysqltest'; FLUSH PRIVILEGES"
       - uses: actions/checkout@v4
         with:
-          persist-credentials: false
+          persist-credentials: true
+          ref: ${{ github.head_ref }}
       - name: Setup Node.js environment
         uses: actions/setup-node@v4.0.0
         with:
