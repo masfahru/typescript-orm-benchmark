@@ -18,9 +18,9 @@
     "@mikro-orm/mysql": "^5.9.4",
     "@mikro-orm/postgresql": "^5.9.4",
     "@pgtyped/runtime": "^2.3.0",
-    "@prisma/client": "^5.6.0",
+    "@prisma/client": "^5.7.0",
     "drizzle-orm": "^0.29.1",
-    "knex": "^3.0.1",
+    "knex": "^3.1.0",
     "kysely": "^0.26.3",
     "mariadb": "^3.2.2",
     "mitata": "^0.1.6",
@@ -30,9 +30,9 @@
     "pg-pool": "^3.6.1",
     "postgres": "~3.4.3",
     "prisma": "latest",
-    "reflect-metadata": "^0.1.13",
+    "reflect-metadata": "^0.1.14",
     "sequelize": "^6.35.1",
-    "ts-node": "^10.9.1",
+    "ts-node": "^10.9.2",
     "typeorm": "^0.3.17"
   }
 }
