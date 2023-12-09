@@ -177,18 +177,6 @@ jobs:
           MAX_CONNECTION: 1
           PG_HOST: 0.0.0.0
       - name: Commit changes
-        run: |
-          git config --local user.email "imam@fahru.my.id"
-          git config --local user.name "masfahru"
-          git add -A
-          
-          git commit -m "🚀 Update Benchmark"
-          
-      - name: GitHub Push
-        uses: ad-m/github-push-action@v0.6.0
+        uses: EndBug/add-and-commit@v9
         with:
-          branch: ${{ github.ref }}
-          directory: "."
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-  
-          
+          default_author: github_actions
