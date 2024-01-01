@@ -4,7 +4,7 @@
   "type": "module",
   "devDependencies": {
     "@pgtyped/cli": "^2.3.0",
-    "@types/mysql": "^2.15.24",
+    "@types/mysql": "^2.15.25",
     "@types/pg": "^8.10.9",
     "@types/pg-pool": "^2.0.6",
     "bun-types": "latest"
@@ -14,14 +14,14 @@
   },
   "dependencies": {
     "@faker-js/faker": "^8.3.1",
-    "@mikro-orm/core": "^5.9.6",
-    "@mikro-orm/mysql": "^5.9.6",
-    "@mikro-orm/postgresql": "^5.9.6",
+    "@mikro-orm/core": "^5.9.7",
+    "@mikro-orm/mysql": "^5.9.7",
+    "@mikro-orm/postgresql": "^5.9.7",
     "@pgtyped/runtime": "^2.3.0",
     "@prisma/client": "^5.7.1",
-    "drizzle-orm": "^0.29.1",
+    "drizzle-orm": "^0.29.2",
     "knex": "^3.1.0",
-    "kysely": "^0.26.3",
+    "kysely": "^0.27.0",
     "mariadb": "^3.2.3",
     "mitata": "^0.1.6",
     "mysql": "^2.18.1",
