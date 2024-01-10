@@ -1,29 +1,29 @@
 cpu: AMD EPYC 7763 64-Core Processor
-runtime: bun 1.0.21 (x64-linux)
+runtime: bun 1.0.22 (x64-linux)
 
 benchmark        time (avg)             (min … max)       p75       p99      p995
 --------------------------------------------------- -----------------------------
 • PostgreSQL
 --------------------------------------------------- -----------------------------
-DrizzleORM   536.03 µs/iter    (408.65 µs … 2.7 ms)  526.3 µs   1.57 ms   1.94 ms
-KnexJS       389.74 µs/iter   (281.05 µs … 2.53 ms) 393.88 µs   1.52 ms   1.66 ms
-Kysely       332.72 µs/iter   (259.32 µs … 1.81 ms) 324.07 µs   1.31 ms   1.39 ms
-MikroORM     427.34 µs/iter     (15.63 µs … 3.2 ms) 520.13 µs   1.94 ms   2.34 ms
-Pg           284.52 µs/iter   (230.97 µs … 1.31 ms) 274.41 µs   1.21 ms   1.24 ms
-PgTyped      312.46 µs/iter   (247.77 µs … 1.91 ms) 301.74 µs   1.26 ms   1.31 ms
-Postgres.js  194.26 µs/iter    (141.7 µs … 9.92 ms) 193.15 µs   1.11 ms   1.17 ms
-Prisma       505.27 µs/iter    (420.81 µs … 1.7 ms) 490.47 µs    1.5 ms   1.61 ms
-Sequelize    436.53 µs/iter   (319.05 µs … 2.54 ms) 424.68 µs   1.55 ms   1.87 ms
-TypeORM      464.03 µs/iter   (346.41 µs … 2.35 ms) 460.98 µs   1.69 ms   1.81 ms
+DrizzleORM   527.06 µs/iter   (393.29 µs … 1.98 ms)  514.8 µs   1.61 ms   1.71 ms
+KnexJS       375.33 µs/iter   (284.73 µs … 1.99 ms) 365.59 µs    1.4 ms   1.58 ms
+Kysely        333.2 µs/iter    (262.48 µs … 1.7 ms) 325.93 µs   1.32 ms   1.42 ms
+MikroORM     456.67 µs/iter    (16.58 µs … 3.05 ms) 552.87 µs   2.05 ms   2.34 ms
+Pg           282.35 µs/iter   (229.85 µs … 1.39 ms) 271.95 µs   1.22 ms   1.27 ms
+PgTyped      310.24 µs/iter    (251.21 µs … 1.5 ms) 299.17 µs   1.26 ms   1.31 ms
+Postgres.js  192.73 µs/iter   (145.17 µs … 9.51 ms) 189.76 µs   1.08 ms   1.17 ms
+Prisma       499.85 µs/iter   (420.24 µs … 1.85 ms) 480.04 µs   1.43 ms   1.48 ms
+Sequelize    425.31 µs/iter   (316.39 µs … 2.33 ms) 406.53 µs   1.67 ms   1.91 ms
+TypeORM      472.95 µs/iter   (344.28 µs … 2.26 ms) 468.52 µs   1.69 ms   1.96 ms
 
 summary for PostgreSQL
   Postgres.js
-   1.46x faster than Pg
+   1.47x faster than Pg
    1.61x faster than PgTyped
-   1.71x faster than Kysely
-   2.01x faster than KnexJS
-   2.2x faster than MikroORM
-   2.25x faster than Sequelize
-   2.39x faster than TypeORM
-   2.6x faster than Prisma
-   2.76x faster than DrizzleORM
+   1.73x faster than Kysely
+   1.95x faster than KnexJS
+   2.21x faster than Sequelize
+   2.37x faster than MikroORM
+   2.45x faster than TypeORM
+   2.59x faster than Prisma
+   2.73x faster than DrizzleORM
