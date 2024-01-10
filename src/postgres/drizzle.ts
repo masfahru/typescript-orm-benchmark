@@ -1,5 +1,5 @@
-import { PostgresJsDatabase, drizzle } from 'drizzle-orm/postgres-js';
-import postgres from 'postgres';
+import { drizzle } from 'drizzle-orm/node-postgres';
+import { Pool } from 'pg';
 import { postgresConfig } from '../config';
 import { eq } from 'drizzle-orm';
 import { serial, text, pgTable, timestamp } from 'drizzle-orm/pg-core';
@@ -21,9 +21,9 @@ if (max) {
   Object.assign(config, { max });
 }
 
-const sql = postgres(config);
+const pool = new Pool(config);
 
-const db: PostgresJsDatabase = drizzle(sql as any);
+const db = drizzle(pool);
 
 export const drizzlePostgreGetUser = async (id: number) =>
   await db
@@ -32,4 +32,4 @@ export const drizzlePostgreGetUser = async (id: number) =>
     .where(eq(users.id, id))
     .then((arr) => arr[0]);
 
-export const drizzleClose = () => sql.end();
+export const drizzleClose = () => pool.end();
