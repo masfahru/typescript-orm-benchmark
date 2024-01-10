@@ -1,5 +1,5 @@
 import { drizzle } from 'drizzle-orm/node-postgres';
-import { Pool } from 'pg';
+import pg from 'pg';
 import { postgresConfig } from '../config';
 import { eq } from 'drizzle-orm';
 import { serial, text, pgTable, timestamp } from 'drizzle-orm/pg-core';
@@ -21,7 +21,7 @@ if (max) {
   Object.assign(config, { max });
 }
 
-const pool = new Pool(config);
+const pool = new pg.Pool(config);
 
 const db = drizzle(pool);
 
