@@ -1,5 +1,4 @@
-import { Entity, MikroORM, PrimaryKey, Property } from '@mikro-orm/core';
-import { MariaDbDriver, Options } from '@mikro-orm/mariadb';
+import { MySqlDriver, Options, MikroORM, Entity, PrimaryKey, Property } from '@mikro-orm/mysql';
 import { mySqlConfig } from '../config';
 
 @Entity({
@@ -39,7 +38,6 @@ class User {
 }
 
 const options: Options = {
-  type: 'mysql',
   entities: [User],
   dbName: mySqlConfig.database,
   port: mySqlConfig.port,
@@ -57,7 +55,7 @@ if (!mySqlConfig.connectionLimit) {
   delete options.pool;
 }
 
-const orm = await MikroORM.init<MariaDbDriver>(options);
+const orm = await MikroORM.init<MySqlDriver>(options);
 
 export const mikroMySqlGetUser = async (id: number) =>
   await orm.em.findOne(User, { id });

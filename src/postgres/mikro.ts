@@ -1,5 +1,4 @@
-import { Entity, MikroORM, PrimaryKey, Property } from '@mikro-orm/core';
-import { PostgreSqlDriver, Options } from '@mikro-orm/postgresql';
+import { PostgreSqlDriver, Options, MikroORM, Entity, PrimaryKey, Property } from '@mikro-orm/postgresql';
 import { postgresConfig } from '../config';
 
 @Entity({
@@ -39,7 +38,6 @@ class User {
 }
 
 const options: Options = {
-  type: 'postgresql',
   entities: [User],
   dbName: postgresConfig.database,
   port: postgresConfig.port,
