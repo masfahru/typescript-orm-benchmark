@@ -36,4 +36,4 @@ await sql`select count(id) as total from ${sql('users')}`.then((res) =>
   console.log(`[PostgreSQL] total users: ${res[0].total}`)
 );
 
-await sql.end();
+await sql.end({ timeout: 1 });
