@@ -18,7 +18,7 @@
     "@mikro-orm/mysql": "^6.2.2",
     "@mikro-orm/postgresql": "^6.2.2",
     "@pgtyped/runtime": "^2.3.0",
-    "@prisma/client": "^5.12.1",
+    "@prisma/client": "^5.13.0",
     "drizzle-orm": "^0.30.9",
     "knex": "^3.1.0",
     "kysely": "^0.27.3",
