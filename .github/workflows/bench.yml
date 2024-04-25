@@ -54,7 +54,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v4.0.0
         with:
-          node-version: 20
+          node-version: 22
       - name: Install required global packages
         run: npm i -g bun npm-check-updates
       - name: Update & install packages
