@@ -1,29 +1,29 @@
 cpu: AMD EPYC 7763 64-Core Processor
-runtime: bun 1.1.4 (x64-linux)
+runtime: bun 1.1.6 (x64-linux)
 
 benchmark       time (avg)             (min … max)       p75       p99      p999
 -------------------------------------------------- -----------------------------
 • MySQL
 -------------------------------------------------- -----------------------------
-DrizzleORM     429 µs/iter     (333 µs … 2'186 µs)    414 µs  1'631 µs  1'879 µs
-KnexJS         344 µs/iter     (275 µs … 1'788 µs)    336 µs  1'486 µs  1'768 µs
-Kysely         308 µs/iter     (245 µs … 1'961 µs)    296 µs  1'483 µs  1'717 µs
-Mariadb        242 µs/iter     (179 µs … 1'705 µs)    241 µs  1'381 µs  1'645 µs
-MikroORM       404 µs/iter  (17'593 ns … 2'562 µs)    535 µs  2'121 µs  2'474 µs
-MySQL          442 µs/iter     (348 µs … 2'096 µs)    440 µs  1'746 µs  2'062 µs
-MySQL2         258 µs/iter     (203 µs … 1'801 µs)    248 µs  1'307 µs  1'648 µs
-Prisma         512 µs/iter     (425 µs … 1'873 µs)    489 µs  1'704 µs  1'872 µs
-Sequelize      467 µs/iter     (349 µs … 2'507 µs)    446 µs  1'998 µs  2'289 µs
-TypeORM        575 µs/iter     (442 µs … 2'441 µs)    559 µs  1'703 µs  2'061 µs
+DrizzleORM     432 µs/iter     (326 µs … 1'933 µs)    419 µs  1'658 µs  1'894 µs
+KnexJS         341 µs/iter     (259 µs … 1'899 µs)    337 µs  1'521 µs  1'870 µs
+Kysely         314 µs/iter     (238 µs … 2'730 µs)    303 µs  1'513 µs  2'151 µs
+Mariadb        237 µs/iter     (177 µs … 1'695 µs)    233 µs  1'340 µs  1'638 µs
+MikroORM       426 µs/iter  (19'877 ns … 2'943 µs)    560 µs  2'229 µs  2'797 µs
+MySQL          442 µs/iter     (352 µs … 1'977 µs)    427 µs  1'760 µs  1'935 µs
+MySQL2         258 µs/iter     (201 µs … 1'660 µs)    253 µs  1'442 µs  1'603 µs
+Prisma         498 µs/iter     (415 µs … 1'994 µs)    478 µs  1'597 µs  1'862 µs
+Sequelize      470 µs/iter     (353 µs … 2'605 µs)    456 µs  1'896 µs  2'228 µs
+TypeORM        592 µs/iter     (446 µs … 2'876 µs)    567 µs  2'007 µs  2'831 µs
 
 summary for MySQL
   Mariadb
-   1.06x faster than MySQL2
-   1.27x faster than Kysely
-   1.42x faster than KnexJS
-   1.67x faster than MikroORM
-   1.77x faster than DrizzleORM
-   1.83x faster than MySQL
-   1.93x faster than Sequelize
-   2.12x faster than Prisma
-   2.37x faster than TypeORM
+   1.09x faster than MySQL2
+   1.33x faster than Kysely
+   1.44x faster than KnexJS
+   1.8x faster than MikroORM
+   1.82x faster than DrizzleORM
+   1.87x faster than MySQL
+   1.99x faster than Sequelize
+   2.11x faster than Prisma
+   2.5x faster than TypeORM
