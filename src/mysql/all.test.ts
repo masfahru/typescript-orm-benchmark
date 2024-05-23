@@ -8,7 +8,6 @@ import { prismaClose, prismaMySqlGetUser } from './prisma';
 import { sequelizeClose, sequelizeMySqlGetUser } from './sequelize';
 import { mikroClose, mikroMySqlGetUser } from './mikro';
 import { typeormClose, typeormMySqlGetUser } from './typeorm';
-import { mySqlClose, mySqlGetUser } from './mysql';
 
 describe('[MySQL] unit tests', () => {
   const checkUnit = async (fun: (id: number) => Promise<any>) => {
@@ -39,11 +38,6 @@ describe('[MySQL] unit tests', () => {
   it('MikroORM', async () => {
     await checkUnit(mikroMySqlGetUser);
     await mikroClose();
-  });
-
-  it('MySQL', async () => {
-    await checkUnit(mySqlGetUser);
-    mySqlClose();
   });
 
   it('MySQL2', async () => {

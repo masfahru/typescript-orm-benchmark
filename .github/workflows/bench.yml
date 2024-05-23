@@ -45,8 +45,6 @@ jobs:
     steps:
       - name: MySQL - Verify mysqltest DB exists
         run: mysql --host 0.0.0.0 --port 3306 -umysqltest -pmysqltest -e "SHOW DATABASES LIKE 'mysqltest'"
-      - name: MySQL - Using the old mysql_native_password to support mysql db connector
-        run: mysql --host 0.0.0.0 --port 3306 -uroot -e "ALTER USER 'mysqltest' IDENTIFIED WITH mysql_native_password BY 'mysqltest'; FLUSH PRIVILEGES"
       - uses: actions/checkout@v4
         with:
           persist-credentials: true
