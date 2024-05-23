@@ -11,7 +11,6 @@ Object-Relational Mapping (ORM) is a powerful technique that allows you to inter
 - [Kysely](./src/mysql/kysely.ts)
 - [Mariadb](./src/mysql/mariadb.ts)
 - [MikroORM](./src/mysql/mikro.ts)
-- [MySQL](./src/mysql/mysql.ts)
 - [MySQL2](./src/mysql/mysql2.ts)
 - [Prisma](./src/mysql/prisma.ts)
 - [Sequelize](./src/mysql/sequelize.ts)
