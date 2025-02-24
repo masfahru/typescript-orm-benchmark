@@ -1,27 +1,43 @@
+clk: ~2.45 GHz
 cpu: AMD EPYC 7763 64-Core Processor
-runtime: node v22.5.1 (x64-linux)
+runtime: node 22.13.1 (x64-linux)
 
-benchmark       time (avg)             (min … max)       p75       p99      p999
--------------------------------------------------- -----------------------------
+benchmark                   avg (min … max) p75 / p99    (min … top 1%)
+------------------------------------------- -------------------------------
 • MySQL
--------------------------------------------------- -----------------------------
-DrizzleORM     424 µs/iter     (354 µs … 1'438 µs)    444 µs    658 µs  1'253 µs
-KnexJS         338 µs/iter       (291 µs … 813 µs)    350 µs    468 µs    748 µs
-Kysely         304 µs/iter       (257 µs … 633 µs)    313 µs    404 µs    617 µs
-Mariadb        232 µs/iter       (189 µs … 534 µs)    246 µs    311 µs    358 µs
-MikroORM       393 µs/iter  (32'651 ns … 1'502 µs)    554 µs    822 µs  1'299 µs
-MySQL2         269 µs/iter       (230 µs … 968 µs)    279 µs    361 µs    534 µs
-Prisma         501 µs/iter       (439 µs … 786 µs)    516 µs    609 µs    746 µs
-Sequelize      435 µs/iter       (375 µs … 815 µs)    459 µs    617 µs    764 µs
-TypeORM        362 µs/iter       (314 µs … 728 µs)    373 µs    497 µs    693 µs
+------------------------------------------- -------------------------------
+DrizzleORM                   482.06 µs/iter 501.40 µs  █▅ ▄                
+                      (385.31 µs … 2.00 ms) 836.05 µs  ████▇               
+                    (792.00  b …   1.69 mb)  98.84 kb ███████▅▄▄▃▃▂▂▂▂▁▁▁▁▁
 
-summary for MySQL
-  Mariadb
-   1.16x faster than MySQL2
-   1.31x faster than Kysely
-   1.45x faster than KnexJS
-   1.56x faster than TypeORM
-   1.69x faster than MikroORM
-   1.82x faster than DrizzleORM
-   1.87x faster than Sequelize
-   2.15x faster than Prisma
+KnexJS                       395.13 µs/iter 401.52 µs    █                 
+                      (303.16 µs … 3.34 ms) 709.46 µs   ██▆                
+                    (  5.42 kb …   1.94 mb)  53.54 kb ▃▃████▇▄▃▂▂▂▁▁▁▁▁▁▁▁▁
+
+Kysely                       307.74 µs/iter 314.93 µs  ▂█                  
+                      (271.82 µs … 1.97 ms) 441.81 µs  ███▅ ▃              
+                    (800.00  b … 438.18 kb)  29.80 kb ▂██████▄▄▂▂▂▁▁▁▁▁▁▁▁▁
+
+Mariadb                      256.70 µs/iter 262.73 µs   ▇█▄                
+                      (210.57 µs … 3.76 ms) 379.86 µs   ████▇              
+                    (  4.59 kb … 643.90 kb)  17.92 kb ▄███████▇▅▄▃▃▂▂▁▁▁▁▁▁
+
+MikroORM                     496.31 µs/iter 628.15 µs         █▂           
+                       (50.18 µs … 5.20 ms)   1.37 ms ▂▂      ██           
+                    (736.00  b … 981.46 kb)  87.24 kb ██▁▁▁▁▁▁██▄▂▂▁▁▁▁▁▁▁▁
+
+MySQL2                       282.85 µs/iter 292.53 µs   ▄▆█                
+                      (243.40 µs … 3.04 ms) 360.90 µs   ███▅▄▂█▂           
+                    (  8.19 kb … 623.01 kb)  27.83 kb ▁███████████▇▄▂▂▂▂▁▁▁
+
+Prisma                       537.74 µs/iter 538.36 µs     ██▃              
+                      (490.13 µs … 2.93 ms) 643.77 µs   ▃████▃             
+                    ( 18.80 kb … 364.95 kb)  21.43 kb ▂▅██████▇▅▃▂▃▁▂▁▁▁▁▁▁
+
+Sequelize                    490.15 µs/iter 506.19 µs  █                   
+                      (414.24 µs … 2.47 ms) 895.05 µs ▂█▇▃                 
+                    (  1.16 kb … 975.93 kb)  82.70 kb ██████▄▂▃▂▂▁▁▁▁▁▁▁▁▁▁
+
+TypeORM                      423.60 µs/iter 408.31 µs  █                   
+                      (359.78 µs … 2.82 ms) 913.13 µs ▃█                   
+                    (728.00  b …   1.14 mb)  62.32 kb ███▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁

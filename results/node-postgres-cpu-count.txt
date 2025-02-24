@@ -1,29 +1,47 @@
+clk: ~2.31 GHz
 cpu: AMD EPYC 7763 64-Core Processor
-runtime: node v22.5.1 (x64-linux)
+runtime: node 22.13.1 (x64-linux)
 
-benchmark        time (avg)             (min … max)       p75       p99      p999
---------------------------------------------------- -----------------------------
+benchmark                   avg (min … max) p75 / p99    (min … top 1%)
+------------------------------------------- -------------------------------
 • PostgreSQL
---------------------------------------------------- -----------------------------
-DrizzleORM      369 µs/iter     (312 µs … 1'617 µs)    393 µs    584 µs  1'133 µs
-KnexJS          337 µs/iter       (292 µs … 714 µs)    344 µs    473 µs    693 µs
-Kysely          297 µs/iter     (258 µs … 2'679 µs)    302 µs    409 µs    947 µs
-MikroORM        345 µs/iter  (27'402 ns … 1'223 µs)    512 µs    708 µs  1'165 µs
-Pg              260 µs/iter       (222 µs … 594 µs)    263 µs    380 µs    492 µs
-PgTyped         271 µs/iter     (239 µs … 1'701 µs)    275 µs    336 µs    388 µs
-Postgres.js     210 µs/iter     (169 µs … 2'439 µs)    223 µs    288 µs    344 µs
-Prisma          498 µs/iter      (453 µs … 1000 µs)    510 µs    609 µs    917 µs
-Sequelize       381 µs/iter       (318 µs … 982 µs)    401 µs    543 µs    973 µs
-TypeORM         392 µs/iter     (326 µs … 1'993 µs)    401 µs    673 µs  1'976 µs
+------------------------------------------- -------------------------------
+DrizzleORM                   433.78 µs/iter 447.31 µs  █▂                  
+                      (348.23 µs … 5.00 ms) 852.84 µs  ██▃                 
+                    (184.00  b … 982.96 kb)  71.48 kb ▆████▅▄▃▃▂▂▁▁▁▁▁▁▁▁▁▁
 
-summary for PostgreSQL
-  Postgres.js
-   1.24x faster than Pg
-   1.29x faster than PgTyped
-   1.41x faster than Kysely
-   1.6x faster than KnexJS
-   1.64x faster than MikroORM
-   1.76x faster than DrizzleORM
-   1.81x faster than Sequelize
-   1.86x faster than TypeORM
-   2.37x faster than Prisma
+KnexJS                       388.51 µs/iter 382.78 µs   █                  
+                      (323.26 µs … 4.26 ms) 770.33 µs  ██▃                 
+                    (  1.05 kb …   1.67 mb)  41.07 kb ▄███▄▃▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+
+Kysely                       331.47 µs/iter 331.61 µs   █                  
+                      (288.28 µs … 3.59 ms) 558.47 µs  ███                 
+                    (  2.50 kb …   1.11 mb)  23.09 kb ▂███▇▄▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁
+
+MikroORM                     492.94 µs/iter 628.30 µs           █          
+                       (43.44 µs … 2.34 ms)   1.14 ms  ▅        █▃         
+                    (  3.66 kb …   2.16 mb)  84.87 kb ▄█▂▁▁▁▁▁▁▃██▃▃▂▁▁▁▁▁▁
+
+Pg                           277.89 µs/iter 278.28 µs    █▂                
+                      (242.76 µs … 4.58 ms) 376.62 µs   ███▄▂              
+                    ( 11.35 kb …   1.84 mb)  13.27 kb ▂▅█████▇▄▂▂▂▁▁▁▁▁▁▁▁▁
+
+PgTyped                      306.31 µs/iter 309.30 µs   ▇█▆                
+                      (263.94 µs … 3.41 ms) 430.55 µs   ████▂              
+                    ( 11.26 kb …   1.00 mb)  19.11 kb ▂▇█████▇▅▄▃▂▂▁▂▁▁▁▁▁▁
+
+Postgres.js                  233.94 µs/iter 249.49 µs   █▆                 
+                      (190.25 µs … 3.04 ms) 333.46 µs  ▆███▆  ▇▆           
+                    (160.00  b … 771.38 kb)  12.66 kb ▃█████████▇▆▄▃▂▂▂▂▁▁▁
+
+Prisma                       533.78 µs/iter 535.47 µs    ▃▄█               
+                      (487.60 µs … 2.89 ms) 647.19 µs   ▆███▅              
+                    ( 18.82 kb … 360.17 kb)  21.13 kb ▁▄██████▅▄▂▂▂▂▂▂▂▂▁▁▁
+
+Sequelize                    442.97 µs/iter 457.76 µs   █▅                 
+                      (353.10 µs … 2.76 ms) 802.60 µs  ▅███▄               
+                    ( 19.32 kb …   1.03 mb)  73.10 kb ▃█████▇▄▂▃▂▂▂▁▁▁▁▁▁▁▁
+
+TypeORM                      443.52 µs/iter 440.27 µs  ▆█                  
+                      (379.62 µs … 4.11 ms) 843.95 µs  ██▂                 
+                    (  5.23 kb … 967.45 kb)  57.02 kb ▄███▄▃▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁
