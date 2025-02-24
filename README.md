@@ -2,6 +2,10 @@
 
 Object-Relational Mapping (ORM) is a powerful technique that allows you to interact with databases using the same language you’re using for your application. This project aims to provide an objective assessment of the performance of popular Node.js ORMs.
 
+## Results
+
+Check [results](./results)
+
 ## List of ORM
 
 ### MySQL
