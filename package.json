@@ -12,13 +12,13 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@faker-js/faker": "^9.5.0",
+    "@faker-js/faker": "^9.5.1",
     "@mikro-orm/core": "^6.4.7",
     "@mikro-orm/mysql": "^6.4.7",
     "@mikro-orm/postgresql": "^6.4.7",
     "@pgtyped/runtime": "^2.4.2",
     "@prisma/client": "^6.4.1",
-    "drizzle-orm": "^0.39.3",
+    "drizzle-orm": "^0.40.0",
     "knex": "^3.1.0",
     "kysely": "^0.27.5",
     "mariadb": "^3.4.0",
