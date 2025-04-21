@@ -4,7 +4,7 @@
   "type": "module",
   "devDependencies": {
     "@pgtyped/cli": "^2.4.3",
-    "@types/pg": "^8.11.12",
+    "@types/pg": "^8.11.13",
     "@types/pg-pool": "^2.0.6",
     "bun-types": "latest"
   },
@@ -18,9 +18,9 @@
     "@mikro-orm/postgresql": "^6.4.13",
     "@pgtyped/runtime": "^2.4.2",
     "@prisma/client": "^6.6.0",
-    "drizzle-orm": "^0.41.0",
+    "drizzle-orm": "^0.42.0",
     "knex": "^3.1.0",
-    "kysely": "^0.28.0",
+    "kysely": "^0.28.1",
     "mariadb": "^3.4.1",
     "mitata": "^1.0.34",
     "mysql2": "^3.14.0",
