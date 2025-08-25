@@ -12,7 +12,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@faker-js/faker": "^9.9.0",
+    "@faker-js/faker": "^10.0.0",
     "@mikro-orm/core": "^6.4.16",
     "@mikro-orm/mysql": "^6.4.16",
     "@mikro-orm/postgresql": "^6.4.16",
@@ -31,6 +31,6 @@
     "reflect-metadata": "^0.2.2",
     "sequelize": "^6.37.7",
     "ts-node": "^10.9.2",
-    "typeorm": "^0.3.25"
+    "typeorm": "^0.3.26"
   }
 }
