@@ -13,24 +13,24 @@
   },
   "dependencies": {
     "@faker-js/faker": "^10.0.0",
-    "@mikro-orm/core": "^6.5.3",
-    "@mikro-orm/mysql": "^6.5.3",
-    "@mikro-orm/postgresql": "^6.5.3",
+    "@mikro-orm/core": "^6.5.5",
+    "@mikro-orm/mysql": "^6.5.5",
+    "@mikro-orm/postgresql": "^6.5.5",
     "@pgtyped/runtime": "^2.4.2",
-    "@prisma/client": "^6.16.1",
+    "@prisma/client": "^6.16.2",
     "drizzle-orm": "^0.44.5",
     "knex": "^3.1.0",
     "kysely": "^0.28.7",
     "mariadb": "^3.4.5",
     "mitata": "^1.0.34",
-    "mysql2": "^3.14.5",
+    "mysql2": "^3.15.0",
     "pg": "^8.16.3",
     "pg-pool": "^3.10.1",
     "postgres": "~3.4.7",
-    "prisma": "^6.16.1",
+    "prisma": "^6.16.2",
     "reflect-metadata": "^0.2.2",
     "sequelize": "^6.37.7",
     "ts-node": "^10.9.2",
-    "typeorm": "^0.3.26"
+    "typeorm": "^0.3.27"
   }
 }
