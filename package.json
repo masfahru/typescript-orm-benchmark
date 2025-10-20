@@ -12,10 +12,10 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@faker-js/faker": "^10.0.0",
-    "@mikro-orm/core": "^6.5.7",
-    "@mikro-orm/mysql": "^6.5.7",
-    "@mikro-orm/postgresql": "^6.5.7",
+    "@faker-js/faker": "^10.1.0",
+    "@mikro-orm/core": "^6.5.8",
+    "@mikro-orm/mysql": "^6.5.8",
+    "@mikro-orm/postgresql": "^6.5.8",
     "@pgtyped/runtime": "^2.4.2",
     "@prisma/client": "^6.17.1",
     "drizzle-orm": "^0.44.6",
